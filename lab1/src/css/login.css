@@ -1,16 +1,16 @@
-.register-section {
+.login-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.register-title {
+.login-title {
     text-align: center;
     font-size: 2em;
 }
 
-.register-form {
+.login-form {
     padding: 60px;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.03);
@@ -21,24 +21,24 @@
     gap: 40px;
 }
 
-.register-form-content {
+.login-form-content {
     display: flex;
     flex-direction: column;
     gap: 20px
 }
 
-.register-item {
+.login-item {
     display: flex;
     flex-direction: column;
-    gap: 20px
+    gap: 20px;
 }
 
 
-.register-form input {
+.login-form input {
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.register-label,
-.register-form input {
+.login-label,
+.login-form input {
     font-size: 1.3em;
 }
