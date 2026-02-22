@@ -1,0 +1,144 @@
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 75px;
+    height: 75px;
+}
+
+.navigation-list {
+    display: flex;
+}
+
+.navigation-item {
+    display: grid;
+    justify-items: center;
+    border-radius: 40px;
+    padding: 5px 20px;
+    transition: background-color 0.3s;
+}
+
+.navigation-item:hover {
+    background-color: #E9E9E9;
+}
+
+.navigation-icon {
+    width: 40px;
+    height: 40px;
+}
+
+
+
+.auth {
+    display: flex;
+    gap: 25px;
+    font-size: 1.5em;
+}
+
+.auth-item {
+    border-bottom: 5px solid transparent;
+    transition: border-bottom-color 0.3s;
+}
+
+.auth-item:hover {
+    border-bottom-color: #000000;
+}
+
+
+section {
+    min-height: 90vh;
+    margin: 50px 0px;
+}
+
+
+.footer {
+    color: #3F3F3F;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content,
+.footer-author {
+    padding: 20px 0px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-navigation-list,
+.footer-address-list {
+    display: grid;
+    gap: 10px;
+}
+
+
+.footer-author {
+    text-align: center;
+}
+
+
+
+.button {
+    padding: 20px 35px;
+    border: none;
+    border-radius: 55px;
+    color: white;
+    font-size: 1.5em;
+    transition: background-color 0.2s;
+    background-color: #999999;
+    width: fit-content;
+}
+
+.button:hover {
+    background-color: #5C5C5C;
+}
+
+.button:active {
+    background-color: #000000;
+}
+
+
+
+.button.green {
+    background-color: #81DCA2;
+}
+
+.button.green:hover {
+    background-color: #53A671;
+}
+
+.button.green:active {
+    background-color: #2E6A44;
+}
+
+
+
+.button.red {
+    background-color: #FF7A7A;
+}
+
+.button.red:hover {
+    background-color: #FF4A4A;
+}
+
+.button.red:active {
+    background-color: #CC3333;
+}
