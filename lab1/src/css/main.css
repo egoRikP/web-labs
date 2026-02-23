@@ -1,6 +1,7 @@
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0px 20px;
 }
 
 
@@ -141,4 +142,47 @@ section {
 
 .button.red:active {
     background-color: #CC3333;
+}
+
+
+
+@media (max-width:900px) {
+
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .header-main {
+        justify-content: center;
+    }
+
+    .auth {
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width:475px) {
+
+    .header {
+        gap: 30px;
+    }
+
+    .navigation-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .navigation-item {
+        display: flex;
+    }
+
 }

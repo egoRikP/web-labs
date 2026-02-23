@@ -1,6 +1,6 @@
 .investor-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 2fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 2fr));
     justify-content: center;
     gap: 30px;
 }

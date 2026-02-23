@@ -6,11 +6,13 @@
 
 .my-startup-info {
     display: flex;
+    flex-wrap: wrap;
     gap: 50px;
 }
 
 .my-startup-managment {
     display: flex;
+    flex-wrap: wrap;
     gap: 50px;
 }
 
@@ -37,11 +39,14 @@
 
 .my-startup-block {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .my-startup-block-item {
     text-align: center;
+    flex-wrap: wrap;
+    display: flex;
 }
 
 .my-startup-block-item h4 {
@@ -68,6 +73,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .button {
