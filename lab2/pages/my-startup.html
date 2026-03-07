@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../src/css/clear.css" />
     <link rel="stylesheet" href="../src/css/main.css" />
     <link rel="stylesheet" href="../src/css/my-startup.css" />
+    <script type="module" src="../src/js/myCompany.js"></script>
+    <script type="module" src="../src/js/storage.js"></script>
   </head>
   <body>
     <header class="header wrapper">
@@ -66,120 +68,122 @@
           <a href="create-startup.html">Створити власну компанію!</a>
         </button>
 
-        <div class="my-startup-info">
-          <div class="my-startup-info-element">
-            <h3 class="my-startup-info-title">Моя компанія</h3>
+        <div class="has-company">
+          <div class="my-startup-info">
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Моя компанія</h3>
 
-            <div class="my-startup-info-block">
-              <div class="my-startup-header">
-                <img
-                  class="my-startup-logo"
-                  src="../src/images/my-company-icon.png"
-                />
-                <h3 class="my-startup-title">Назва</h3>
-              </div>
+              <div class="my-startup-info-block">
+                <div class="my-startup-header">
+                  <img
+                    class="my-startup-logo"
+                    src="../src/images/my-company-icon.png"
+                  />
+                  <h3 class="my-startup-title">Назва</h3>
+                </div>
 
-              <div class="my-startup-block">
-                <div class="my-startup-block-item">
-                  <h4>Моя частка</h4>
-                  <p>90%</p>
+                <div class="my-startup-block">
+                  <div class="my-startup-block-item">
+                    <h4>Моя частка</h4>
+                    <p>90%</p>
+                  </div>
+                </div>
+
+                <div class="my-startup-item">
+                  <img src="../src/images/region-icon.png" />
+                  <div>
+                    <h4>Ринки</h4>
+                    <p>Україна</p>
+                  </div>
+                </div>
+
+                <div class="my-startup-item">
+                  <img src="../src/images/field-icon.png" />
+                  <div>
+                    <h4>Сфера</h4>
+                    <p>IT</p>
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="my-startup-item">
-                <img src="../src/images/region-icon.png" />
-                <div>
-                  <h4>Ринки</h4>
-                  <p>Україна</p>
-                </div>
-              </div>
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Статистика</h3>
 
-              <div class="my-startup-item">
-                <img src="../src/images/field-icon.png" />
-                <div>
-                  <h4>Сфера</h4>
-                  <p>IT</p>
+              <div class="my-startup-info-block">
+                <div class="my-startup-block">
+                  <div class="my-startup-block-item">
+                    <h4>Сила</h4>
+                    <p>10</p>
+                  </div>
+                  <div class="my-startup-block-item">
+                    <h4>Баланс</h4>
+                    <p>$0</p>
+                  </div>
+                  <div class="my-startup-block-item">
+                    <h4>Прибуток / міс.</h4>
+                    <p class="green">$50K</p>
+                  </div>
+                  <div class="my-startup-block-item">
+                    <h4>Витрати / міс.</h4>
+                    <p class="green">$50K</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="my-startup-info-element">
-            <h3 class="my-startup-info-title">Статистика</h3>
+          <div class="my-startup-managment">
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Працівники</h3>
 
-            <div class="my-startup-info-block">
-              <div class="my-startup-block">
+              <div class="my-startup-info-block">
                 <div class="my-startup-block-item">
-                  <h4>Сила</h4>
-                  <p>10</p>
+                  <h4>Кількість</h4>
+                  <p>75/100</p>
                 </div>
+
                 <div class="my-startup-block-item">
-                  <h4>Баланс</h4>
-                  <p>$0</p>
+                  <h4>Вільних місць</h4>
+                  <p>25</p>
                 </div>
+
+                <button type="button" class="button red">звільнити</button>
+                <button type="button" class="button green">найняти</button>
+              </div>
+            </div>
+
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Офіси</h3>
+
+              <div class="my-startup-info-block">
                 <div class="my-startup-block-item">
-                  <h4>Прибуток / міс.</h4>
-                  <p class="green">$50K</p>
+                  <h4>Кількість</h4>
+                  <p>75/100</p>
                 </div>
-                <div class="my-startup-block-item">
-                  <h4>Витрати / міс.</h4>
-                  <p class="green">$50K</p>
-                </div>
+
+                <button type="button" class="button red">зняти оренду</button>
+                <button type="button" class="button green">орендувати</button>
               </div>
             </div>
           </div>
+
+          <h3 class="my-startup-info-title">Мої ринки збуту</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Ринок</th>
+                <th>Сфера</th>
+                <th>Частка ринку</th>
+                <th>Розмір</th>
+                <th>Оплата/міс.</th>
+                <th>Дохід</th>
+                <th>Прибуток</th>
+              </tr>
+            </thead>
+            <tbody id="myMarkets"></tbody>
+          </table>
         </div>
-
-        <div class="my-startup-managment">
-          <div class="my-startup-info-element">
-            <h3 class="my-startup-info-title">Працівники</h3>
-
-            <div class="my-startup-info-block">
-              <div class="my-startup-block-item">
-                <h4>Кількість</h4>
-                <p>75/100</p>
-              </div>
-
-              <div class="my-startup-block-item">
-                <h4>Вільних місць</h4>
-                <p>25</p>
-              </div>
-
-              <button type="button" class="button red">звільнити</button>
-              <button type="button" class="button green">найняти</button>
-            </div>
-          </div>
-
-          <div class="my-startup-info-element">
-            <h3 class="my-startup-info-title">Офіси</h3>
-
-            <div class="my-startup-info-block">
-              <div class="my-startup-block-item">
-                <h4>Кількість</h4>
-                <p>75/100</p>
-              </div>
-
-              <button type="button" class="button red">зняти оренду</button>
-              <button type="button" class="button green">орендувати</button>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="my-startup-info-title">Мої ринки збуту</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Ринок</th>
-              <th>Сфера</th>
-              <th>Частка ринку</th>
-              <th>Розмір</th>
-              <th>Оплата/міс.</th>
-              <th>Дохід</th>
-              <th>Прибуток</th>
-            </tr>
-          </thead>
-          <tbody id="myMarkets"></tbody>
-        </table>
       </section>
     </main>
 
