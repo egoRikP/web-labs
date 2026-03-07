@@ -1,0 +1,536 @@
+{
+    "area": [
+        "IT",
+        "War"
+    ],
+    "region": [
+        "Ukraine",
+        "EU",
+        "USA"
+    ],
+    "users": [
+        {
+            "nickname": "egorik",
+            "email": "egorik@gmail.com",
+            "password": "easy",
+            "company": {
+                "title": "myComp",
+                "area": [
+                    "IT",
+                    "imba",
+                    "War"
+                ],
+                "description": "some bla bla text..",
+                "region": [
+                    "EU",
+                    "Ukraine"
+                ],
+                "offices": 2,
+                "maxEmpoyeesPerOffice": 10,
+                "empoyees": 15,
+                "myCompanyPart": 100,
+                "monthProfit": 100,
+                "monthCosts": 50,
+                "myMarkets": [
+                    0
+                ]
+            }
+        },
+        {
+            "nickname": "max_dev",
+            "email": "max_dev@gmail.com",
+            "password": "qwerty",
+            "company": {
+                "title": "DevSolutions",
+                "area": [
+                    "IT",
+                    "Outsource"
+                ],
+                "description": "software development",
+                "region": [
+                    "USA",
+                    "Ukraine"
+                ],
+                "offices": 1,
+                "maxEmpoyeesPerOffice": 20,
+                "empoyees": 18,
+                "myCompanyPart": 50,
+                "monthProfit": 5000,
+                "monthCosts": 2000,
+                "myMarkets": [
+                    1,
+                    2
+                ]
+            }
+        },
+        {
+            "nickname": "olya_s",
+            "email": "olya.s@gmail.com",
+            "password": "pass123",
+            "company": {
+                "title": "AgroTrade",
+                "area": [
+                    "Agriculture",
+                    "Logistics"
+                ],
+                "description": "grain export",
+                "region": [
+                    "EU",
+                    "Ukraine",
+                    "Asia"
+                ],
+                "offices": 4,
+                "maxEmpoyeesPerOffice": 15,
+                "empoyees": 45,
+                "myCompanyPart": 100,
+                "monthProfit": 12000,
+                "monthCosts": 8000,
+                "myMarkets": [
+                    0,
+                    3
+                ]
+            }
+        },
+        {
+            "nickname": "denis_k",
+            "email": "denisk@gmail.com",
+            "password": "secure!",
+            "company": {
+                "title": "FinStream",
+                "area": [
+                    "Finance",
+                    "Crypto"
+                ],
+                "description": "crypto trading bot",
+                "region": [
+                    "EU",
+                    "UAE"
+                ],
+                "offices": 2,
+                "maxEmpoyeesPerOffice": 5,
+                "empoyees": 8,
+                "myCompanyPart": 33,
+                "monthProfit": 15000,
+                "monthCosts": 1000,
+                "myMarkets": [
+                    2
+                ]
+            }
+        },
+        {
+            "nickname": "anna_m",
+            "email": "anna_m@gmail.com",
+            "password": "my_password",
+            "company": {
+                "title": "DesignPro",
+                "area": [
+                    "Design",
+                    "Marketing"
+                ],
+                "description": "creative agency",
+                "region": [
+                    "UK",
+                    "EU"
+                ],
+                "offices": 1,
+                "maxEmpoyeesPerOffice": 10,
+                "empoyees": 5,
+                "myCompanyPart": 100,
+                "monthProfit": 3000,
+                "monthCosts": 1200,
+                "myMarkets": [
+                    1
+                ]
+            }
+        },
+        {
+            "nickname": "vova99",
+            "email": "vova99@gmail.com",
+            "password": "vovavova",
+            "company": {
+                "title": "AutoParts",
+                "area": [
+                    "Retail",
+                    "Auto"
+                ],
+                "description": "selling car parts",
+                "region": [
+                    "Ukraine"
+                ],
+                "offices": 5,
+                "maxEmpoyeesPerOffice": 8,
+                "empoyees": 35,
+                "myCompanyPart": 100,
+                "monthProfit": 8000,
+                "monthCosts": 6000,
+                "myMarkets": [
+                    0,
+                    5
+                ]
+            }
+        },
+        {
+            "nickname": "ira_hr",
+            "email": "ira_hr@gmail.com",
+            "password": "hr_admin",
+            "company": {
+                "title": "TalentHub",
+                "area": [
+                    "HR",
+                    "Recruiting"
+                ],
+                "description": "finding IT talents",
+                "region": [
+                    "EU",
+                    "USA"
+                ],
+                "offices": 2,
+                "maxEmpoyeesPerOffice": 10,
+                "empoyees": 12,
+                "myCompanyPart": 50,
+                "monthProfit": 4000,
+                "monthCosts": 1500,
+                "myMarkets": [
+                    4
+                ]
+            }
+        },
+        {
+            "nickname": "taras_b",
+            "email": "taras_builder@gmail.com",
+            "password": "buildit",
+            "company": {
+                "title": "BudInvest",
+                "area": [
+                    "Construction",
+                    "Real Estate"
+                ],
+                "description": "building houses",
+                "region": [
+                    "Ukraine",
+                    "Poland"
+                ],
+                "offices": 3,
+                "maxEmpoyeesPerOffice": 50,
+                "empoyees": 120,
+                "myCompanyPart": 25,
+                "monthProfit": 50000,
+                "monthCosts": 35000,
+                "myMarkets": [
+                    0,
+                    1
+                ]
+            }
+        },
+        {
+            "nickname": "yulia_v",
+            "email": "yulia.v@gmail.com",
+            "password": "sunshine",
+            "company": {
+                "title": "EcoLife",
+                "area": [
+                    "Ecology",
+                    "Retail"
+                ],
+                "description": "eco friendly products",
+                "region": [
+                    "EU"
+                ],
+                "offices": 1,
+                "maxEmpoyeesPerOffice": 5,
+                "empoyees": 3,
+                "myCompanyPart": 100,
+                "monthProfit": 1500,
+                "monthCosts": 500,
+                "myMarkets": [
+                    3
+                ]
+            }
+        },
+        {
+            "nickname": "artem_g",
+            "email": "artem_game@gmail.com",
+            "password": "gamer123",
+            "company": {
+                "title": "GameStudio",
+                "area": [
+                    "Gamedev",
+                    "Entertainment"
+                ],
+                "description": "indie games",
+                "region": [
+                    "USA",
+                    "Asia"
+                ],
+                "offices": 1,
+                "maxEmpoyeesPerOffice": 30,
+                "empoyees": 22,
+                "myCompanyPart": 80,
+                "monthProfit": 25000,
+                "monthCosts": 10000,
+                "myMarkets": [
+                    0,
+                    2,
+                    4
+                ]
+            }
+        }
+    ],
+    "markets": [
+        {
+            "region": [
+                "Ukraine",
+                "Poland"
+            ],
+            "area": [
+                "AgriTech"
+            ],
+            "budget": 500000,
+            "startSum": 150000,
+            "monthPayment": 15000
+        },
+        {
+            "region": [
+                "CEE"
+            ],
+            "area": [
+                "FinTech"
+            ],
+            "budget": 1200000,
+            "startSum": 200000,
+            "monthPayment": 25000
+        },
+        {
+            "region": [
+                "USA"
+            ],
+            "area": [
+                "HealthTech",
+                "AI"
+            ],
+            "budget": 2500000,
+            "startSum": 500000,
+            "monthPayment": 40000
+        },
+        {
+            "region": [
+                "Global"
+            ],
+            "area": [
+                "E-commerce"
+            ],
+            "budget": 800000,
+            "startSum": 100000,
+            "monthPayment": 20000
+        },
+        {
+            "region": [
+                "Europe"
+            ],
+            "area": [
+                "GreenTech"
+            ],
+            "budget": 1500000,
+            "startSum": 300000,
+            "monthPayment": 30000
+        },
+        {
+            "region": [
+                "Ukraine"
+            ],
+            "area": [
+                "EdTech"
+            ],
+            "budget": 200000,
+            "startSum": 50000,
+            "monthPayment": 5000
+        },
+        {
+            "region": [
+                "USA",
+                "Canada"
+            ],
+            "area": [
+                "DeepTech",
+                "AI"
+            ],
+            "budget": 3000000,
+            "startSum": 800000,
+            "monthPayment": 50000
+        },
+        {
+            "region": [
+                "Global"
+            ],
+            "area": [
+                "B2B SaaS"
+            ],
+            "budget": 1000000,
+            "startSum": 250000,
+            "monthPayment": 20000
+        },
+        {
+            "region": [
+                "CEE",
+                "Ukraine"
+            ],
+            "area": [
+                "Logistics"
+            ],
+            "budget": 600000,
+            "startSum": 120000,
+            "monthPayment": 15000
+        },
+        {
+            "region": [
+                "Europe",
+                "USA"
+            ],
+            "area": [
+                "Cybersecurity"
+            ],
+            "budget": 2000000,
+            "startSum": 400000,
+            "monthPayment": 35000
+        }
+    ],
+    "investors": [
+        {
+            "title": "D3 Venture Capital",
+            "check": 100000,
+            "budget": 15000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Ukraine",
+                "USA"
+            ],
+            "area": [
+                "Defense Tech",
+                "MilTech"
+            ]
+        },
+        {
+            "title": "Roosh Ventures",
+            "check": 500000,
+            "budget": 20000000,
+            "averageCheckPercent": 5,
+            "region": [
+                "Europe",
+                "USA"
+            ],
+            "area": [
+                "AI",
+                "Machine Learning"
+            ]
+        },
+        {
+            "title": "Flyer One Ventures",
+            "check": 200000,
+            "budget": 10000000,
+            "averageCheckPercent": 8,
+            "region": [
+                "CEE",
+                "Ukraine"
+            ],
+            "area": [
+                "EdTech",
+                "FinTech"
+            ]
+        },
+        {
+            "title": "Horizon Capital",
+            "check": 5000000,
+            "budget": 250000000,
+            "averageCheckPercent": 15,
+            "region": [
+                "Ukraine",
+                "Moldova"
+            ],
+            "area": [
+                "IT",
+                "E-commerce"
+            ]
+        },
+        {
+            "title": "U.Ventures",
+            "check": 300000,
+            "budget": 5000000,
+            "averageCheckPercent": 12,
+            "region": [
+                "Ukraine",
+                "USA"
+            ],
+            "area": [
+                "Web3",
+                "SaaS"
+            ]
+        },
+        {
+            "title": "TA Ventures",
+            "check": 250000,
+            "budget": 50000000,
+            "averageCheckPercent": 5,
+            "region": [
+                "Global",
+                "Ukraine"
+            ],
+            "area": [
+                "Digital Health",
+                "Mobility"
+            ]
+        },
+        {
+            "title": "ZAS Ventures",
+            "check": 50000,
+            "budget": 2000000,
+            "averageCheckPercent": 8,
+            "region": [
+                "Ukraine",
+                "CEE"
+            ],
+            "area": [
+                "B2B SaaS",
+                "DeepTech"
+            ]
+        },
+        {
+            "title": "Presto Ventures",
+            "check": 150000,
+            "budget": 30000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "CEE"
+            ],
+            "area": [
+                "B2B SaaS",
+                "Marketplaces"
+            ]
+        },
+        {
+            "title": "Angel One Fund",
+            "check": 50000,
+            "budget": 1500000,
+            "averageCheckPercent": 15,
+            "region": [
+                "Ukraine"
+            ],
+            "area": [
+                "FinTech",
+                "EdTech"
+            ]
+        },
+        {
+            "title": "Green Flag Ventures",
+            "check": 100000,
+            "budget": 10000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Ukraine"
+            ],
+            "area": [
+                "Defense Tech",
+                "Cybersecurity"
+            ]
+        }
+    ]
+}
