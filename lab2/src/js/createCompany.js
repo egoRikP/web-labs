@@ -8,6 +8,22 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("startup-form");
 
+  let areaSelectList = document.getElementById("field-form");
+  for (let i = 0; i < data.area.length; i++) {
+    let element = document.createElement("option");
+    element.innerText = data.area[i];
+    element.value = data.area[i];
+    areaSelectList.appendChild(element);
+  }
+
+  let regioSelectList = document.getElementById("region-form");
+  for (let i = 0; i < data.region.length; i++) {
+    let element = document.createElement("option");
+    element.innerText = data.region[i];
+    element.value = data.region[i];
+    regioSelectList.appendChild(element);
+  }
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(form);
