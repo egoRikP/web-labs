@@ -1,11 +1,54 @@
 {
     "area": [
+        "AgriTech",
+        "Agriculture",
+        "AI",
+        "Auto",
+        "B2B SaaS",
+        "Construction",
+        "Crypto",
+        "Cybersecurity",
+        "DeepTech",
+        "Defense Tech",
+        "Design",
+        "Digital Health",
+        "E-commerce",
+        "Ecology",
+        "EdTech",
+        "Entertainment",
+        "Finance",
+        "FinTech",
+        "Gamedev",
+        "GreenTech",
+        "HealthTech",
+        "HR",
         "IT",
-        "War"
+        "Logistics",
+        "Machine Learning",
+        "Marketing",
+        "Marketplaces",
+        "MilTech",
+        "Mobility",
+        "Outsource",
+        "Real Estate",
+        "Recruiting",
+        "Retail",
+        "SaaS",
+        "War",
+        "Web3"
     ],
     "region": [
-        "Ukraine",
+        "Asia",
+        "Canada",
+        "CEE",
         "EU",
+        "Europe",
+        "Global",
+        "Moldova",
+        "Poland",
+        "UAE",
+        "UK",
+        "Ukraine",
         "USA"
     ],
     "users": [
@@ -17,7 +60,6 @@
                 "title": "myComp",
                 "area": [
                     "IT",
-                    "imba",
                     "War"
                 ],
                 "description": "some bla bla text..",
@@ -26,6 +68,7 @@
                     "Ukraine"
                 ],
                 "offices": 2,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 10,
                 "empoyees": 15,
                 "myCompanyPart": 100,
@@ -52,6 +95,7 @@
                     "Ukraine"
                 ],
                 "offices": 1,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 20,
                 "empoyees": 18,
                 "myCompanyPart": 50,
@@ -80,6 +124,7 @@
                     "Asia"
                 ],
                 "offices": 4,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 15,
                 "empoyees": 45,
                 "myCompanyPart": 100,
@@ -107,6 +152,7 @@
                     "UAE"
                 ],
                 "offices": 2,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 5,
                 "empoyees": 8,
                 "myCompanyPart": 33,
@@ -133,6 +179,7 @@
                     "EU"
                 ],
                 "offices": 1,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 10,
                 "empoyees": 5,
                 "myCompanyPart": 100,
@@ -158,6 +205,7 @@
                     "Ukraine"
                 ],
                 "offices": 5,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 8,
                 "empoyees": 35,
                 "myCompanyPart": 100,
@@ -185,6 +233,7 @@
                     "USA"
                 ],
                 "offices": 2,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 10,
                 "empoyees": 12,
                 "myCompanyPart": 50,
@@ -211,6 +260,7 @@
                     "Poland"
                 ],
                 "offices": 3,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 50,
                 "empoyees": 120,
                 "myCompanyPart": 25,
@@ -237,6 +287,7 @@
                     "EU"
                 ],
                 "offices": 1,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 5,
                 "empoyees": 3,
                 "myCompanyPart": 100,
@@ -263,6 +314,7 @@
                     "Asia"
                 ],
                 "offices": 1,
+                "balance": 10000,
                 "maxEmpoyeesPerOffice": 30,
                 "empoyees": 22,
                 "myCompanyPart": 80,
@@ -530,6 +582,312 @@
             "area": [
                 "Defense Tech",
                 "Cybersecurity"
+            ]
+        },
+        {
+            "title": "Nova Ventures",
+            "check": 150000,
+            "budget": 12000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Europe",
+                "UK"
+            ],
+            "area": [
+                "GreenTech",
+                "Ecology"
+            ]
+        },
+        {
+            "title": "Alpha Capital",
+            "check": 1000000,
+            "budget": 50000000,
+            "averageCheckPercent": 20,
+            "region": [
+                "USA",
+                "Global"
+            ],
+            "area": [
+                "AI",
+                "HealthTech"
+            ]
+        },
+        {
+            "title": "Baltic Seed Fund",
+            "check": 80000,
+            "budget": 5000000,
+            "averageCheckPercent": 7,
+            "region": [
+                "CEE",
+                "Poland"
+            ],
+            "area": [
+                "Gamedev",
+                "Entertainment"
+            ]
+        },
+        {
+            "title": "Desert Oasis Ventures",
+            "check": 250000,
+            "budget": 25000000,
+            "averageCheckPercent": 12,
+            "region": [
+                "UAE",
+                "Asia"
+            ],
+            "area": [
+                "Real Estate",
+                "Construction"
+            ]
+        },
+        {
+            "title": "Maple Leaf Investments",
+            "check": 400000,
+            "budget": 30000000,
+            "averageCheckPercent": 15,
+            "region": [
+                "Canada",
+                "USA"
+            ],
+            "area": [
+                "AgriTech",
+                "Agriculture"
+            ]
+        },
+        {
+            "title": "Shield Capital",
+            "check": 350000,
+            "budget": 18000000,
+            "averageCheckPercent": 8,
+            "region": [
+                "Ukraine",
+                "EU"
+            ],
+            "area": [
+                "Cybersecurity",
+                "MilTech"
+            ]
+        },
+        {
+            "title": "NextGen Health Partners",
+            "check": 500000,
+            "budget": 40000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Global"
+            ],
+            "area": [
+                "Digital Health",
+                "HealthTech"
+            ]
+        },
+        {
+            "title": "CryptoBulls VC",
+            "check": 100000,
+            "budget": 8000000,
+            "averageCheckPercent": 5,
+            "region": [
+                "UAE",
+                "EU"
+            ],
+            "area": [
+                "Crypto",
+                "Web3"
+            ]
+        },
+        {
+            "title": "EduFund CEE",
+            "check": 50000,
+            "budget": 3000000,
+            "averageCheckPercent": 8,
+            "region": [
+                "Ukraine",
+                "Poland"
+            ],
+            "area": [
+                "EdTech",
+                "IT"
+            ]
+        },
+        {
+            "title": "Steel Logistics Ventures",
+            "check": 600000,
+            "budget": 60000000,
+            "averageCheckPercent": 18,
+            "region": [
+                "Asia",
+                "Global"
+            ],
+            "area": [
+                "Logistics",
+                "Mobility"
+            ]
+        },
+        {
+            "title": "DefendTech Partners",
+            "check": 250000,
+            "budget": 15000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Ukraine",
+                "EU"
+            ],
+            "area": [
+                "War",
+                "IT"
+            ]
+        },
+        {
+            "title": "Global Dev Capital",
+            "check": 500000,
+            "budget": 40000000,
+            "averageCheckPercent": 15,
+            "region": [
+                "USA",
+                "Ukraine"
+            ],
+            "area": [
+                "Outsource",
+                "IT"
+            ]
+        },
+        {
+            "title": "AgriChain Ventures",
+            "check": 300000,
+            "budget": 20000000,
+            "averageCheckPercent": 12,
+            "region": [
+                "EU",
+                "Ukraine",
+                "Asia"
+            ],
+            "area": [
+                "Agriculture",
+                "Logistics"
+            ]
+        },
+        {
+            "title": "FinBlock Capital",
+            "check": 400000,
+            "budget": 25000000,
+            "averageCheckPercent": 8,
+            "region": [
+                "UAE",
+                "EU"
+            ],
+            "area": [
+                "Finance",
+                "Crypto"
+            ]
+        },
+        {
+            "title": "Creative Minds VC",
+            "check": 100000,
+            "budget": 5000000,
+            "averageCheckPercent": 20,
+            "region": [
+                "UK",
+                "EU"
+            ],
+            "area": [
+                "Design",
+                "Marketing"
+            ]
+        },
+        {
+            "title": "UkrAuto Retail Fund",
+            "check": 150000,
+            "budget": 8000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Ukraine"
+            ],
+            "area": [
+                "Retail",
+                "Auto"
+            ]
+        },
+        {
+            "title": "Talent Ventures",
+            "check": 200000,
+            "budget": 12000000,
+            "averageCheckPercent": 15,
+            "region": [
+                "USA",
+                "EU"
+            ],
+            "area": [
+                "HR",
+                "Recruiting"
+            ]
+        },
+        {
+            "title": "CEE Build Fund",
+            "check": 1000000,
+            "budget": 50000000,
+            "averageCheckPercent": 25,
+            "region": [
+                "Ukraine",
+                "Poland"
+            ],
+            "area": [
+                "Construction",
+                "Real Estate"
+            ]
+        },
+        {
+            "title": "EcoCommerce Partners",
+            "check": 50000,
+            "budget": 3000000,
+            "averageCheckPercent": 5,
+            "region": [
+                "EU"
+            ],
+            "area": [
+                "Ecology",
+                "Retail"
+            ]
+        },
+        {
+            "title": "PlayVentures Global",
+            "check": 800000,
+            "budget": 60000000,
+            "averageCheckPercent": 15,
+            "region": [
+                "USA",
+                "Asia"
+            ],
+            "area": [
+                "Gamedev",
+                "Entertainment"
+            ]
+        },
+        {
+            "title": "Liberty Ventures",
+            "check": 350000,
+            "budget": 18000000,
+            "averageCheckPercent": 10,
+            "region": [
+                "Ukraine",
+                "Global"
+            ],
+            "area": [
+                "War",
+                "Defense Tech"
+            ]
+        },
+        {
+            "title": "TechFin Europe",
+            "check": 600000,
+            "budget": 35000000,
+            "averageCheckPercent": 12,
+            "region": [
+                "Europe",
+                "UK"
+            ],
+            "area": [
+                "Finance",
+                "IT"
             ]
         }
     ]
