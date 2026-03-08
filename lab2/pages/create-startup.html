@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../src/css/main.css" />
     <link rel="stylesheet" href="../src/css/create-startup.css" />
     <script type="module" src="../src/js/storage.js"></script>
+    <script type="module" src="../src/js/createCompany.js"></script>
   </head>
   <body>
     <header class="header wrapper">
@@ -63,7 +64,7 @@
 
     <main class="wrapper">
       <section id="startup" class="startup-section">
-        <form class="startup-form">
+        <form class="startup-form" id="startup-form">
           <h3 class="startup-title">Створення власної компанії</h3>
           <div class="startup-form-content">
             <div class="startup-form-item">
@@ -79,7 +80,12 @@
               <label class="startup-form-label" for="field">
                 Сфера діяльності:
               </label>
-              <select class="startup-form-input" name="field" multiple>
+              <select
+                id="field-form"
+                class="startup-form-input"
+                name="field"
+                multiple
+              >
                 <option value="it">It</option>
                 <option value="school">Освіта</option>
                 <option value="war">Війна</option>
@@ -100,7 +106,12 @@
 
             <div class="startup-form-item">
               <label class="startup-form-label" for="region"> Регіон: </label>
-              <select class="startup-form-input" name="field" multiple>
+              <select
+                id="region-form"
+                class="startup-form-input"
+                name="region"
+                multiple
+              >
                 <option value="ukraine">Україна</option>
                 <option value="europe">Європа</option>
                 <option value="usa">Америка</option>

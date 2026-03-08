@@ -1,0 +1,49 @@
+import { getCurrentUserData, saveData, data } from "./storage.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("startup-form");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const myData = Object.fromEntries(formData.entries());
+
+    let field = [];
+    let fieldSelector = document.getElementById("field-form");
+    for (let i = 0; i < fieldSelector.options.length; i++) {
+      if (fieldSelector.options[i].selected) {
+        field.push(fieldSelector.options[i].value);
+      }
+    }
+
+    let region = [];
+    let regionSelector = document.getElementById("region-form");
+    for (let i = 0; i < regionSelector.options.length; i++) {
+      if (regionSelector.options[i].selected) {
+        region.push(regionSelector.options[i].value);
+      }
+    }
+
+    console.log(field);
+    console.log(region);
+    console.log(data.users);
+
+    getCurrentUserData().company = {
+      title: myData.company,
+      area: field,
+      description: myData.description,
+      region: region,
+      offices: 0,
+      maxEmpoyeesPerOffice: 5,
+      empoyees: 0,
+      myCompanyPart: 100,
+      monthProfit: 0,
+      monthCosts: 0,
+      balance: 0,
+      myMarkets: [],
+    };
+
+    saveData();
+    document.location.href = "my-startup.html";
+  });
+});
