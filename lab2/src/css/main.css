@@ -145,6 +145,37 @@ section {
 }
 
 
+.auth-only,
+.company-only,
+.no-company-only {
+    display: none;
+}
+
+.guest-only,
+.no-company-only {
+    display: block;
+}
+
+body.logged-in .guest-only {
+    display: none;
+}
+
+body.logged-in .auth-only {
+    display: block;
+}
+
+body.logged-in .no-company-only {
+    display: block;
+}
+
+body.logged-in.has-company .no-company-only {
+    display: none;
+}
+
+body.logged-in.has-company .company-only {
+    display: block;
+}
+
 
 @media (max-width:900px) {
 

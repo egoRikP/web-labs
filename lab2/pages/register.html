@@ -15,6 +15,7 @@
     <script type="module" src="../src/js/register.js"></script>
   </head>
   <body>
+    <script src="../src/js/authCheck.js"></script>
     <header class="header wrapper">
       <a href="../index.html" class="header-main">
         <img class="header-logo" src="../src/images/logo-icon.png" />
@@ -56,9 +57,13 @@
         </ul>
       </nav>
 
-      <div class="auth">
+      <div class="auth guest-only">
         <a class="auth-item" href="../pages/register.html">Реєстрація</a>
         <a class="auth-item" href="../pages/login.html">Вхід</a>
+      </div>
+
+      <div class="auth-only">
+        <a class="auth-item" onclick="logout()">Вихід</a>
       </div>
     </header>
 
