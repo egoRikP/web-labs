@@ -1,15 +1,43 @@
 import { getCurrentUserData, saveData, data } from "./storage.js";
 
+const ui = {
+  companyTitle: document.getElementById("companyTitle"),
+  companyPercentage: document.getElementById("companyPercentage"),
+  companyMarkets: document.getElementById("companyMarkets"),
+  companyAreas: document.getElementById("companyAreas"),
+
+  companyStrength: document.getElementById("companyStrength"),
+  companyBalance: document.getElementById("companyBalance"),
+  companyMonthProfit: document.getElementById("companyMonthProfit"),
+  companyMonthPayment: document.getElementById("companyMonthPayment"),
+
+  companyEmployeesCount: document.getElementById("companyEmployeesCount"),
+  companyAvailablePlacesForEmployees: document.getElementById(
+    "companyAvailablePlacesForEmployees",
+  ),
+
+  companyOfficesCount: document.getElementById("companyOfficesCount"),
+
+  companyMarketsTable: document.getElementById("companyMarketsTable"),
+};
+
+function defaultUIValues() {
+  ui.companyEmployeesCount.innerText = 0;
+  ui.companyAvailablePlacesForEmployees.innerText = 0;
+  ui.companyOfficesCount.innerText = 0;
+
+  ui.companyTitle.innerText = "Company title...";
+  ui.companyPercentage.innerText = "100%";
+  ui.companyMarkets.innerText = "Ukraine";
+  ui.companyAreas.innerText = "IT";
+
+  ui.companyStrength.innerText = "0";
+  ui.companyBalance.innerText = "0$";
+  ui.companyMonthProfit.innerText = "0$";
+  ui.companyMonthPayment.innerText = "0$";
+}
+
 function showMyMarkets(userData, markets) {
-  if (
-    Object.keys(userData.company).length == 0 ||
-    userData.company.myMarkets.length == 0
-  ) {
-    return;
-  }
-
-  let myMarkeyHtmlList = document.getElementById("myMarkets");
-
   for (let i = 0; i < userData.company.myMarkets.length; i++) {
     let marketElement = document.createElement("tr");
     marketElement.innerHTML = `
@@ -23,13 +51,106 @@ function showMyMarkets(userData, markets) {
               <td>
                 <button type="button" class="button red">вийти з ринку</button>
               </td>`;
-    myMarkeyHtmlList.appendChild(marketElement);
+    ui.companyMarketsTable.appendChild(marketElement);
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  if (getCurrentUser() != null) {
-    let data = await getData();
-    showMyMarkets(getCurrentUserData(), data);
+function updateMyEmployee() {
+  ui.companyEmployeesCount.innerText = `${getCurrentUserData().company.empoyees}/${getCurrentUserData().company.offices * getCurrentUserData().company.maxEmpoyeesPerOffice}`;
+  ui.companyAvailablePlacesForEmployees.innerText = `${getCurrentUserData().company.offices * getCurrentUserData().company.maxEmpoyeesPerOffice - getCurrentUserData().company.empoyees}`;
+}
+
+function updateMyOffice() {
+  ui.companyOfficesCount.innerText = `${getCurrentUserData().company.offices}`;
+}
+
+function addOffice() {
+  getCurrentUserData().company.offices++;
+  saveData();
+  updateMyOffice();
+  updateMyEmployee();
+}
+
+function removeOffice() {
+  if (
+    getCurrentUserData().company.offices > 0 &&
+    getCurrentUserData().company.maxEmpoyeesPerOffice *
+      getCurrentUserData().company.offices -
+      getCurrentUserData().company.empoyees >=
+      getCurrentUserData().company.maxEmpoyeesPerOffice
+  ) {
+    getCurrentUserData().company.offices--;
+    saveData();
+    updateMyOffice();
+    updateMyEmployee();
   }
+}
+
+function addEmployee() {
+  if (
+    getCurrentUserData().company.empoyees <
+    getCurrentUserData().company.maxEmpoyeesPerOffice *
+      getCurrentUserData().company.offices
+  ) {
+    getCurrentUserData().company.empoyees++;
+    saveData();
+    updateMyEmployee();
+  }
+}
+
+function removeEmployee() {
+  if (getCurrentUserData().company.empoyees > 0) {
+    getCurrentUserData().company.empoyees--;
+    saveData();
+    updateMyEmployee();
+  }
+}
+
+function loadValues() {
+  let myDataCompany = getCurrentUserData().company;
+
+  ui.companyEmployeesCount.innerText = myDataCompany.empoyees;
+  ui.companyAvailablePlacesForEmployees.innerText =
+    myDataCompany.offices * myDataCompany.maxEmpoyeesPerOffice -
+    myDataCompany.empoyees;
+  ui.companyOfficesCount.innerText = myDataCompany.offices;
+
+  ui.companyTitle.innerText = myDataCompany.title;
+  ui.companyPercentage.innerText = myDataCompany.myCompanyPart;
+  ui.companyMarkets.innerText = myDataCompany.region[0];
+  ui.companyAreas.innerText = myDataCompany.area[0];
+
+  ui.companyStrength.innerText = myDataCompany.empoyees + myDataCompany.offices;
+  ui.companyBalance.innerText =
+    myDataCompany.monthProfit - myDataCompany.monthCosts;
+  ui.companyMonthProfit.innerText = myDataCompany.monthProfit;
+  ui.companyMonthPayment.innerText = myDataCompany.monthCosts;
+
+  showMyMarkets(getCurrentUserData(), data.markets);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  let user = getCurrentUserData();
+  if (!user || !user.company || Object.keys(user.company).length === 0) {
+    defaultUIValues();
+    return;
+  }
+
+  loadValues();
+
+  document
+    .getElementById("addEmployeeButton")
+    .addEventListener("click", addEmployee);
+
+  document
+    .getElementById("removeEmployeeButton")
+    .addEventListener("click", removeEmployee);
+
+  document
+    .getElementById("addOfficeButton")
+    .addEventListener("click", addOffice);
+
+  document
+    .getElementById("removeOfficeButton")
+    .addEventListener("click", removeOffice);
 });
