@@ -21,18 +21,28 @@ export async function getData() {
 
 export function saveData() {
   localStorage.setItem("data", JSON.stringify(data));
+  let currentUser = getCurrentUserData();
+  if (currentUser) {
+    setCurrentUser(currentUser);
+  }
 }
 
 export function getCurrentUser() {
-  return localStorage.getItem("user");
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  if (user) {
+    return user.email;
+  }
 }
 
 export function getCurrentUserData() {
+  if (!data || !data.users) return null;
+
   return data.users.find((u) => u.email === getCurrentUser());
 }
 
-export function setCurrentUser(email) {
-  localStorage.setItem("user", email);
+export function setCurrentUser(data) {
+  localStorage.setItem("user", JSON.stringify(data));
 }
 
 await getData();

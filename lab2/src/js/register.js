@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     data.users.push({ ...myData, company: {} });
     saveData();
-    setCurrentUser(myData.email);
+    setCurrentUser({ ...myData, company: {} });
 
     document.location.href = "my-startup.html";
   });

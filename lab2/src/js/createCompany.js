@@ -1,4 +1,9 @@
-import { getCurrentUserData, saveData, data } from "./storage.js";
+import {
+  getCurrentUserData,
+  setCurrentUser,
+  saveData,
+  data,
+} from "./storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("startup-form");
@@ -43,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       myMarkets: [],
     };
 
+    setCurrentUser(getCurrentUserData());
     saveData();
     document.location.href = "my-startup.html";
   });

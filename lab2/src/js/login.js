@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    setCurrentUser(user.email);
+    setCurrentUser(user);
     document.location.href = "my-startup.html";
   });
 });
