@@ -1,4 +1,4 @@
-import { getData, setCurrentUser } from "./storage.js";
+import { data, setCurrentUser } from "./storage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const form = document.getElementById("login-form");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const formData = new FormData(form);
     const myData = Object.fromEntries(formData.entries());
 
-    const user = await getData().users.find((u) => u.email === myData.email);
+    const user = data.users.find((u) => u.email === myData.email);
 
     if (!user) {
       console.log("немає такого юзера!");

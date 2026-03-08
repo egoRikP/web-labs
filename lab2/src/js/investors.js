@@ -1,4 +1,4 @@
-import { getData } from "./storage.js";
+import { data } from "./storage.js";
 
 function showInvestorsData(data) {
   let investorHtmlList = document.getElementById("investor-list");
@@ -52,6 +52,5 @@ function showInvestorsData(data) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  let data = await getData();
   showInvestorsData(data.investors);
 });

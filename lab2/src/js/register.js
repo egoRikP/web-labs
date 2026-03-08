@@ -1,4 +1,4 @@
-import { saveData, setCurrentUser, getData } from "./storage.js";
+import { saveData, setCurrentUser, data } from "./storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("register-form");
@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     delete myData["repeat-password"];
-
-    let data = await getData();
 
     if (data.users.some((user) => user.email === myData.email)) {
       console.log("вже такий юзер є!");

@@ -34,3 +34,5 @@ export function getCurrentUserData() {
 export function setCurrentUser(email) {
   localStorage.setItem("user", email);
 }
+
+await getData();

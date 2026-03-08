@@ -1,4 +1,4 @@
-import { getCurrentUserData, getCurrentUser, getData } from "./storage.js";
+import { getCurrentUserData, saveData, data } from "./storage.js";
 
 function showMyMarkets(userData, markets) {
   if (
