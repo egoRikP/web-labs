@@ -5,49 +5,43 @@ import {
   data,
 } from "./storage.js";
 
+function fromDataToSelectOptions(elementId, data) {
+  let selectList = document.getElementById(elementId);
+  for (let i = 0; i < data.length; i++) {
+    let element = document.createElement("option");
+    element.innerText = data[i];
+    element.value = data[i];
+    selectList.appendChild(element);
+  }
+}
+
+function getSelectedAsArray(elementId) {
+  let arrayResult = [];
+  let selector = document.getElementById(elementId);
+  for (let i = 0; i < selector.options.length; i++) {
+    if (selector.options[i].selected) {
+      arrayResult.push(selector.options[i].value);
+    }
+  }
+  return arrayResult;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("startup-form");
 
-  let areaSelectList = document.getElementById("field-form");
-  for (let i = 0; i < data.area.length; i++) {
-    let element = document.createElement("option");
-    element.innerText = data.area[i];
-    element.value = data.area[i];
-    areaSelectList.appendChild(element);
-  }
-
-  let regioSelectList = document.getElementById("region-form");
-  for (let i = 0; i < data.region.length; i++) {
-    let element = document.createElement("option");
-    element.innerText = data.region[i];
-    element.value = data.region[i];
-    regioSelectList.appendChild(element);
-  }
+  fromDataToSelectOptions("field-form", data.area);
+  fromDataToSelectOptions("region-form", data.region);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formData = new FormData(form);
     const myData = Object.fromEntries(formData.entries());
 
-    let field = [];
-    let fieldSelector = document.getElementById("field-form");
-    for (let i = 0; i < fieldSelector.options.length; i++) {
-      if (fieldSelector.options[i].selected) {
-        field.push(fieldSelector.options[i].value);
-      }
-    }
-
-    let region = [];
-    let regionSelector = document.getElementById("region-form");
-    for (let i = 0; i < regionSelector.options.length; i++) {
-      if (regionSelector.options[i].selected) {
-        region.push(regionSelector.options[i].value);
-      }
-    }
+    let field = getSelectedAsArray("field-form");
+    let region = getSelectedAsArray("region-form");
 
     console.log(field);
     console.log(region);
-    console.log(data.users);
 
     getCurrentUserData().company = {
       title: myData.company,
