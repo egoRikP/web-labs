@@ -1,9 +1,30 @@
-import { data } from "./storage.js";
+import { data, getCurrentUserData, saveData } from "./storage.js";
 
-function showMarketData(data) {
+// для того щоб потім запушити юзеру загальний id легше так зберігати
+let result = data.markets.map((item, index) => ({
+  ...item,
+  originalId: index,
+}));
+
+function showMarketData() {
   let marketHtmlList = document.getElementById("market-list");
 
-  for (let i = 0; i < data.length; i++) {
+  if (
+    getCurrentUserData() &&
+    Object.keys(getCurrentUserData().company).length != 0
+  ) {
+    result = result.filter(
+      (investor) =>
+        getCurrentUserData().company.area.some((e) =>
+          investor.area.includes(e),
+        ) &&
+        getCurrentUserData().company.region.some((e) =>
+          investor.region.includes(e),
+        ),
+    );
+  }
+
+  for (let i = 0; i < result.length; i++) {
     let marketItem = document.createElement("li");
     marketItem.classList.add("card-item");
     marketItem.innerHTML = `
@@ -12,14 +33,14 @@ function showMarketData(data) {
                   <img src="../src/images/region-icon.png" alt="Region" />
                   <div>
                     <span class="label">Ринок</span>
-                    <p class="value">${data[i].region[0]}</p>
+                    <p class="value">${result[i].region[0]}</p>
                   </div>
                 </div>
                 <div class="icon-text">
                   <img src="../src/images/field-icon.png" alt="Field" />
                   <div>
                     <span class="label">Сфера</span>
-                    <p class="value">${data[i].area[0]}</p>
+                    <p class="value">${result[i].area[0]}</p>
                   </div>
                 </div>
               </div>
@@ -27,15 +48,15 @@ function showMarketData(data) {
               <div class="card-row grid-2">
                 <div class="stat-block">
                   <h4 class="label">Місткість</h4>
-                  <p class="green">$${data[i].budget}</p>
+                  <p class="green">$${result[i].budget}</p>
                 </div>
                 <div class="stat-block">
                   <h4 class="label">Вхідний поріг</h4>
-                  <p class="green">$${data[i].startSum}</p>
+                  <p class="green">$${result[i].startSum}</p>
                 </div>
                 <div class="stat-block">
                   <h4 class="label">Оплата/міс.</h4>
-                  <p class="green">$${data[i].monthPayment}</p>
+                  <p class="green">$${result[i].monthPayment}</p>
                 </div>
                 <div class="stat-block">
                   <h4 class="label">Конкуренція</h4>
@@ -43,7 +64,7 @@ function showMarketData(data) {
                 </div>
               </div>
 
-              <button type="button" class="button green-btn full-width">
+              <button data-id="${result[i].originalId}" type="button" class="button green-btn full-width market-button">
                 увійти
               </button>`;
 
@@ -112,8 +133,44 @@ function showCompetitorsData(data) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+function takeMarket(id) {
+  let numId = parseInt(id);
+  if (isNaN(numId)) {
+    return;
+  }
 
-  showMarketData(data.markets);
+  let targetMarket = data.markets[numId];
+
+  if (getCurrentUserData().company.myMarkets.includes(numId)) {
+    return;
+  }
+
+  if (
+    targetMarket.averageCheckPercent >
+    getCurrentUserData().company.myCompanyPart
+  ) {
+    // мейбі модалку що нехватає процетів
+    return;
+  }
+
+  getCurrentUserData().company.balance -= targetMarket.startSum;
+  getCurrentUserData().company.myMarkets.push(numId);
+  saveData();
+
+  window.location.reload();
+  //   нормально зробити а не просто релоадити... треба пройтись по айдішниках і шукати його і міняти в html без релоаду...
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  showMarketData();
   showCompetitorsData(data.users);
+
+  let user = getCurrentUserData();
+  if (!user || !user.company || Object.keys(user.company).length === 0) {
+    return;
+  }
+
+  document.querySelectorAll(".market-button").forEach((btn) => {
+    btn.addEventListener("click", (e) => takeMarket(e.target.dataset.id));
+  });
 });
