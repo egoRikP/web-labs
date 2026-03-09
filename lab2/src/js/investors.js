@@ -21,52 +21,52 @@ function showInvestorsData(data) {
     );
   }
 
-  for (let i = 0; i < investorList.length; i++) {
-    let investorElement = document.createElement("li");
-    investorElement.classList.add("investor-item");
-    investorElement.innerHTML = `
+  investorHtmlList.innerHTML = investorList
+    .map(
+      (investor, index) => `
+        <li class="investor-item">
             <div class="investor-header">
               <img class="investor-icon" src="../src/images/investor-icon.png" alt="Investor icon">
-              <p class="investor-name">${investorList[i].title}</p>
+              <p class="investor-name">${investor.title}</p>
             </div>
 
             <div class="investor-body">
               <div class="investor-check">
                 <div class="investor-block-item">
                   <h4>Чек</h4>
-                  <p>$${investorList[i].check}</p>
+                  <p>$${investor.check}</p>
                 </div>
 
                 <div class="investor-block-item">
                   <h4>Бюджет</h4>
-                  <p>$${investorList[i].budget}</p>
+                  <p>$${investor.budget}</p>
                 </div>
 
                 <div class="investor-block-item">
                   <h4>Середній %</h4>
-                  <p>${investorList[i].averageCheckPercent}%</p>
+                  <p>${investor.averageCheckPercent}%</p>
                 </div>
               </div>
 
               <div class="investor-info">
                 <div class="investor-block-item">
                   <h4>Регіон</h4>
-                  <p>${investorList[i].region[0]}</p>
+                  <p>${investor.region[0]}</p>
                 </div>
 
                 <div class="investor-block-item">
                   <h4>Сфера</h4>
-                  <p>${investorList[i].area[0]}</p>
+                  <p>${investor.area[0]}</p>
                 </div>
               </div>
             </div>
 
-            <button type="button" data-id="${i}" class="button green investor-button">
+            <button type="button" data-id="${index}" class="button green investor-button">
               запросити
-            </button>`;
-
-    investorHtmlList.appendChild(investorElement);
-  }
+            </button>
+        </li>`,
+    )
+    .join("");
 }
 
 function takeInvestor(id) {

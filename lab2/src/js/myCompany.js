@@ -39,22 +39,27 @@ function defaultUIValues() {
   ui.companyMonthPayment.innerText = "0$";
 }
 
-function showMyMarkets(userData, markets) {
-  for (let i = 0; i < userData.company.myMarkets.length; i++) {
-    let marketElement = document.createElement("tr");
-    marketElement.innerHTML = `
-              <td>${markets[userData.company.myMarkets[i]].region[0]}</td>
-              <td>${markets[userData.company.myMarkets[i]].area[0]}</td>
-              <td>5%</td>
-              <td>$${markets[userData.company.myMarkets[i]].budget}</td>
-              <td>$${markets[userData.company.myMarkets[i]].monthPayment}</td>
-              <td>$${markets[userData.company.myMarkets[i]].startSum}</td>
-              <td>$${markets[userData.company.myMarkets[i]].startSum}</td>
-              <td>
-                <button data-id="${i}" type="button" class="button red leave-market-button">вийти з ринку</button>
-              </td>`;
-    ui.companyMarketsTable.appendChild(marketElement);
-  }
+function showMyMarkets() {
+  ui.companyMarketsTable.innerHTML = getCurrentUserData()
+    .company.myMarkets.map(
+      (id) => `
+          <tr>
+            <td>${data.markets[id].region[0]}</td>
+            <td>${data.markets[id].area[0]}</td>
+            <td>5%</td>
+            <td>$${data.markets[id].budget}</td>
+            <td>$${data.markets[id].monthPayment}</td>
+            <td>$${data.markets[id].startSum}</td>
+            <td>$${data.markets[id].startSum}</td>
+            <td>
+              <button data-id="${id}" type="button" class="button red leave-market-button">
+                вийти з ринку
+              </button>
+            </td>
+          </tr>
+        `,
+    )
+    .join("");
 }
 
 function updateMyEmployee() {
@@ -214,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loadValues();
-  showMyMarkets(getCurrentUserData(), data.markets);
+  showMyMarkets();
 
   document
     .getElementById("addEmployeeButton")
