@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const formData = new FormData(form);
     const myData = Object.fromEntries(formData.entries());
 
+    Object.keys(myData).forEach((key) => (myData[key] = myData[key].trim()));
+
+    if (Object.values(myData).some((e) => e == "")) {
+      console.log("потрібно заповнити всі поля!");
+      return;
+    }
+
     const user = data.users.find((u) => u.email === myData.email);
 
     if (!user) {

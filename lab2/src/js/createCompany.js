@@ -40,6 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let field = getSelectedAsArray("field-form");
     let region = getSelectedAsArray("region-form");
 
+    Object.keys(myData).forEach((key) => (myData[key] = myData[key].trim()));
+
+    if (Object.values(myData).some((e) => e == "")) {
+      console.log("потрібно заповнити всі поля!");
+      return;
+    }
+
     console.log(field);
     console.log(region);
 

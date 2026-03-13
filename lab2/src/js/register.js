@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(form);
     const myData = Object.fromEntries(formData.entries());
 
+    Object.keys(myData).forEach((key) => (myData[key] = myData[key].trim()));
+
+    if (Object.values(myData).some((e) => e == "")) {
+      console.log("потрібно заповнити всі поля!");
+      return;
+    }
+
     if (myData.password !== myData["repeat-password"]) {
       console.log("паролі є різні!");
       return;

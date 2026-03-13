@@ -75,6 +75,7 @@
             <div class="startup-form-item">
               <label class="startup-form-label" for="company"> Назва: </label>
               <input
+                required
                 class="startup-form-input"
                 name="company"
                 placeholder="Наприклад, ViTEk"
@@ -86,11 +87,13 @@
                 Сфера діяльності:
               </label>
               <select
+                required
                 id="field-form"
                 class="startup-form-input"
                 name="field"
                 multiple
               >
+                <option selected disabled value="">Виберіть сфери діяльності</option>
               </select>
             </div>
 
@@ -99,6 +102,8 @@
                 Опис:
               </label>
               <textarea
+                required
+                value=""
                 class="startup-form-input"
                 placeholder="Опис про компанію"
                 name="description"
@@ -108,11 +113,13 @@
             <div class="startup-form-item">
               <label class="startup-form-label" for="region"> Регіон: </label>
               <select
+                required
                 id="region-form"
                 class="startup-form-input"
                 name="region"
                 multiple
               >
+                <option selected disabled value="">Виберіть регіони</option>
               </select>
             </div>
           </div>
