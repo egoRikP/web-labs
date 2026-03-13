@@ -44,13 +44,21 @@ function showMyMarkets() {
     .company.myMarkets.map(
       (id) => `
           <tr>
-            <td>${data.markets[id].region[0]}</td>
-            <td>${data.markets[id].area[0]}</td>
             <td>5%</td>
             <td>$${data.markets[id].budget}</td>
             <td>$${data.markets[id].monthPayment}</td>
             <td>$${data.markets[id].startSum}</td>
             <td>$${data.markets[id].startSum}</td>
+            <td>
+            <ul>
+            ${market.region.map((region) => `<li>${region}</li>`).join("")}
+            </ul>
+              </td>
+            <td>
+            <ul>
+            ${market.area.map((area) => `<li>${area}</li>`).join("")}
+              </ul>
+              </td>
             <td>
               <button data-id="${id}" type="button" class="button red leave-market-button">
                 вийти з ринку

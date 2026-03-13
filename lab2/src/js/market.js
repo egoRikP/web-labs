@@ -33,14 +33,28 @@ function showMarketData() {
                   <img src="../src/images/region-icon.png" alt="Region" />
                   <div>
                     <span class="label">Ринок</span>
-                    <p class="value">${market.region[0]}</p>
+                    <p class="value">
+                    ${market.region
+                      .map(
+                        (region) => `<ul>
+                        <li>${region}</li>
+                    </ul>`,
+                      )
+                      .join("")}
+                    </p>
                   </div>
                 </div>
                 <div class="icon-text">
                   <img src="../src/images/field-icon.png" alt="Field" />
                   <div>
                     <span class="label">Сфера</span>
-                    <p class="value">${market.area[0]}</p>
+                    <p class="value">${market.area
+                      .map(
+                        (area) => `<ul>
+                        <li>${area}</li>
+                    </ul>`,
+                      )
+                      .join("")}</p>
                   </div>
                 </div>
               </div>
@@ -114,14 +128,26 @@ function showCompetitorsData(data) {
                       <img src="../src/images/region-icon.png" alt="Region" />
                       <div>
                         <span class="label">Ринки</span>
-                        <p class="value">${competitor.company.region[0]}</p>
+                        <p class="value">
+                            <ul>
+                                ${competitor.company.region
+                                  .map((region) => `<li>${region}</li>`)
+                                  .join("")}
+                            </ul>
+                        </p>
                       </div>
                     </div>
                     <div class="icon-text">
                       <img src="../src/images/field-icon.png" alt="Field" />
                       <div>
                         <span class="label">Сфера</span>
-                        <p class="value">${competitor.company.area[0]}</p>
+                        <p class="value">
+                        <ul>
+                            ${competitor.company.area
+                              .map((area) => `<li>${area}</li>`)
+                              .join("")}
+                          </ul>
+                          </p>
                       </div>
                     </div>
                   </div>

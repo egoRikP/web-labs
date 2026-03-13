@@ -51,12 +51,22 @@ function showInvestorsData(data) {
               <div class="investor-info">
                 <div class="investor-block-item">
                   <h4>Регіон</h4>
-                  <p>${investor.region[0]}</p>
+                  <p>
+                    <ul>
+                        ${investor.region
+                          .map((region) => `<li>${region}</li>`)
+                          .join("")}
+                    </ul>
+                  </p>
                 </div>
 
                 <div class="investor-block-item">
                   <h4>Сфера</h4>
-                  <p>${investor.area[0]}</p>
+                  <p>
+                    <ul>
+                        ${investor.area.map((area) => `<li>${area}</li>`).join("")}
+                    </ul>
+                  </p>
                 </div>
               </div>
             </div>
