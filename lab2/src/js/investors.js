@@ -85,6 +85,11 @@ function takeInvestor(id) {
     return;
   }
 
+  //   якщо вже є такий
+  if (getCurrentUserData().company.investors.includes(numId)) {
+    return;
+  }
+
   let targetInvestor = investorList[numId];
 
   if (
@@ -94,6 +99,8 @@ function takeInvestor(id) {
     // мейбі модалку що нехватає процетів компанії
     return;
   }
+
+  getCurrentUserData().company.investors.push(numId);
 
   getCurrentUserData().company.balance += targetInvestor.check;
   getCurrentUserData().company.myCompanyPart -=

@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       monthCosts: 0,
       balance: 0,
       myMarkets: [],
+      investors: [],
     };
 
     setCurrentUser(getCurrentUserData());

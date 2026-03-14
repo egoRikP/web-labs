@@ -212,6 +212,35 @@ function nextMonth() {
   window.location.reload();
 }
 
+function showMyInvestors() {
+  let investorHtmlList = document.getElementById("companyInvestors");
+
+  investorHtmlList.innerHTML = getCurrentUserData()
+    .company.investors.map((id) => {
+      let investor = data.investors[id];
+
+      return `
+          <tr>
+          <td>${investor.title}%</td>
+            <td>
+            <ul>
+            ${investor.region.map((region) => `<li>${region}</li>`).join("")}
+            </ul>
+              </td>
+            <td>
+            <ul>
+            ${investor.area.map((area) => `<li>${area}</li>`).join("")}
+              </ul>
+              </td>
+            <td>${investor.averageCheckPercent}%</td>
+            <td>$${investor.check}</td>
+            <td>${getCurrentUserData().company.balance * (investor.averageCheckPercent / 100)}</td>
+          </tr>
+        `;
+    })
+    .join("");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let user = getCurrentUserData();
   if (!user || !user.company || Object.keys(user.company).length === 0) {
@@ -228,6 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadValues();
   showMyMarkets();
+  showMyInvestors();
 
   document
     .getElementById("addEmployeeButton")
