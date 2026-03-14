@@ -78,9 +78,17 @@ function showMarketData() {
                 </div>
               </div>
 
-              <button data-id="${market.originalId}" type="button" class="button green-btn full-width market-button">
-                увійти
-              </button>
+${
+  getCurrentUserData() &&
+  getCurrentUserData().company.myMarkets.includes(market.originalId)
+    ? `<button type="button" data-id="${market.originalId}" class="button no-active full-width market-button">
+              вже на ринку
+            </button>`
+    : `<button type="button" data-id="${market.originalId}" class="button green-btn full-width market-button">
+              увійти
+            </button>`
+}
+    
   </li>`,
     )
     .join("");

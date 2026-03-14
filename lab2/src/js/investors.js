@@ -71,9 +71,16 @@ function showInvestorsData(data) {
               </div>
             </div>
 
-            <button type="button" data-id="${index}" class="button green investor-button">
+            ${
+              getCurrentUserData() &&
+              getCurrentUserData().company.investors.includes(index)
+                ? `<button type="button" data-id="${index}" class="button no-active investor-button">
+              вже запрошений
+            </button>`
+                : `<button type="button" data-id="${index}" class="button green investor-button">
               запросити
-            </button>
+            </button>`
+            }
         </li>`,
     )
     .join("");
