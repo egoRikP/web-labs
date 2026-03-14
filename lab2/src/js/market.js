@@ -6,6 +6,28 @@ let result = data.markets.map((item, index) => ({
   originalId: index,
 }));
 
+// якщо є перетин ринку
+function getCompetitorShare(competitorCompany) {
+  let compStrength = competitorCompany.empoyees + competitorCompany.offices;
+
+  let totalMarketStrength = data.users
+    .filter((c) => c.company && Object.keys(c.company).length !== 0)
+    .filter((c) => {
+      let isSameArea = c.company.area?.some((a) =>
+        competitorCompany.area?.includes(a),
+      );
+      let isSameRegion = c.company.region?.some((r) =>
+        competitorCompany.region?.includes(r),
+      );
+      return isSameArea && isSameRegion;
+    })
+    .reduce((sum, c) => sum + (c.company.empoyees + c.company.offices), 0);
+
+  return totalMarketStrength > 0
+    ? +((compStrength / totalMarketStrength) * 100).toFixed(1)
+    : 0;
+}
+
 function showMarketData() {
   let marketHtmlList = document.getElementById("market-list");
 
@@ -99,9 +121,10 @@ function showCompetitorsData(data) {
 
   competitorHtmlList.innerHTML = data
     .filter((competitor) => Object.keys(competitor.company).length !== 0)
-    .map(
-      (competitor) =>
-        `<li class="card-item">
+    .map((competitor) => {
+      let share = getCompetitorShare(competitor.company);
+
+      return `<li class="card-item">
     <div class="competitor-header">
                     <div class="logo-box">
                       <img
@@ -115,7 +138,7 @@ function showCompetitorsData(data) {
                   <div class="card-row grid-2">
                     <div class="stat-block">
                       <h4 class="label">Частка ринку</h4>
-                      <p class="green">10%</p>
+                      <p class="green">${share}%</p>
                     </div>
                     <div class="stat-block">
                       <h4 class="label">прибуток</h4>
@@ -159,8 +182,8 @@ function showCompetitorsData(data) {
                       </div>
                     </div>
                   </div>
-      </li>`,
-    )
+      </li>`;
+    })
     .join("");
 }
 
@@ -178,13 +201,15 @@ function takeMarket(id) {
 
   if (
     targetMarket.averageCheckPercent >
-    getCurrentUserData().company.myCompanyPart
+      getCurrentUserData().company.myCompanyPart ||
+    getCurrentUserData().company.balance - targetMarket.startSum < 0
   ) {
     // мейбі модалку що нехватає процетів
     return;
   }
 
   getCurrentUserData().company.balance -= targetMarket.startSum;
+  getCurrentUserData().company.monthCosts += targetMarket.monthPayment;
   getCurrentUserData().company.myMarkets.push(numId);
   saveData();
 
