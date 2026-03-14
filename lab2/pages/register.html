@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../src/css/register.css" />
     <script type="module" src="../src/js/storage.js"></script>
     <script type="module" src="../src/js/register.js"></script>
+    <script type="module" src="../src/js/menu.js"></script>
   </head>
   <body>
     <script src="../src/js/authCheck.js"></script>
@@ -21,8 +22,13 @@
         <img class="header-logo" src="../src/images/logo-icon.png" />
         <h1 class="header-text">Startup</h1>
       </a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <nav class="navigation">
+      <nav id="nav" class="navigation">
         <ul class="navigation-list">
           <li>
             <a href="../pages/my-startup.html" class="navigation-item">
@@ -56,13 +62,11 @@
           </li>
         </ul>
       </nav>
-
       <div class="auth guest-only">
         <a class="auth-item" href="../pages/register.html">Реєстрація</a>
         <a class="auth-item" href="../pages/login.html">Вхід</a>
       </div>
-
-      <div class="auth-only">
+      <div class="auth auth-only">
         <a class="auth-item" onclick="logout()">Вихід</a>
       </div>
     </header>

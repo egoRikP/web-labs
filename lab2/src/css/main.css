@@ -62,6 +62,39 @@
     border-bottom-color: #000000;
 }
 
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.burger span {
+    display: block;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.burger.open span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
 
 section {
     min-height: 90vh;
@@ -145,6 +178,12 @@ section {
 }
 
 
+.button.no-active {
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: default;
+}
+
+
 .auth-only,
 .company-only,
 .no-company-only {
@@ -181,39 +220,57 @@ body.logged-in.has-company .company-only {
 
     .header {
         flex-direction: column;
-        justify-content: center;
         gap: 30px;
     }
-
-    .header-main {
-        justify-content: center;
-    }
-
-    .auth {
-        justify-content: center;
-    }
-
 }
 
-
-@media (max-width:475px) {
-
+@media (max-width: 475px) {
     .header {
-        gap: 30px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .navigation,
+    .auth,
+    .auth-only {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .auth,
+    .auth-only {
+        text-align: center;
+    }
+
+    .navigation.open {
+        max-height: 400px;
+    }
+
+    .auth.open,
+    .auth-only.open {
+        max-height: 100px;
     }
 
     .navigation-list {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
     }
 
     .navigation-item {
         display: flex;
     }
 
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
