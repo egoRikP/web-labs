@@ -73,11 +73,11 @@ function showInvestorsData(data) {
 
             ${
               getCurrentUserData() &&
-              getCurrentUserData().company.investors.includes(index)
-                ? `<button type="button" data-id="${index}" class="button no-active investor-button">
+              getCurrentUserData().company.investors?.includes(investor.id)
+                ? `<button type="button" data-id="${investor.id}" class="button no-active investor-button">
               вже запрошений
             </button>`
-                : `<button type="button" data-id="${index}" class="button green investor-button">
+                : `<button type="button" data-id="${investor.id}" class="button green investor-button">
               запросити
             </button>`
             }
@@ -93,11 +93,11 @@ function takeInvestor(id) {
   }
 
   //   якщо вже є такий
-  if (getCurrentUserData().company.investors.includes(numId)) {
+  if (getCurrentUserData().company.investors?.includes(numId)) {
     return;
   }
 
-  let targetInvestor = investorList[numId];
+  let targetInvestor = data.investors.find((inv) => inv.id === numId);
 
   if (
     targetInvestor.averageCheckPercent >

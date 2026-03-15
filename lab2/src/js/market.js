@@ -1,10 +1,7 @@
 import { data, getCurrentUserData, saveData } from "./storage.js";
+import { makeCompanyChange } from "./userControl.js";
 
-// для того щоб потім запушити юзеру загальний id легше так зберігати
-let result = data.markets.map((item, index) => ({
-  ...item,
-  originalId: index,
-}));
+let result = data.markets;
 
 // якщо є перетин ринку
 function getCompetitorShare(competitorCompany) {
@@ -102,11 +99,11 @@ function showMarketData() {
 
 ${
   getCurrentUserData() &&
-  getCurrentUserData().company.myMarkets.includes(market.originalId)
-    ? `<button type="button" data-id="${market.originalId}" class="button no-active full-width market-button">
+  getCurrentUserData().company.myMarkets?.includes(market.id)
+    ? `<button type="button" data-id="${market.id}" class="button no-active full-width market-button">
               вже на ринку
             </button>`
-    : `<button type="button" data-id="${market.originalId}" class="button green-btn full-width market-button">
+    : `<button type="button" data-id="${market.id}" class="button green-btn full-width market-button">
               увійти
             </button>`
 }
@@ -193,7 +190,7 @@ function takeMarket(id) {
     return;
   }
 
-  let targetMarket = data.markets[numId];
+  let targetMarket = data.markets.find((market) => market.id == numId);
 
   if (getCurrentUserData().company.myMarkets.includes(numId)) {
     return;
@@ -227,6 +224,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   document.querySelectorAll(".market-button").forEach((btn) => {
-    btn.addEventListener("click", (e) => takeMarket(e.target.dataset.id));
+    btn.addEventListener("click", (e) =>
+      makeCompanyChange(takeMarket(e.target.dataset.id)),
+    );
   });
 });

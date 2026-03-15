@@ -75,7 +75,7 @@ const renderList = (arr) =>
 function showMyMarkets() {
   ui.marketsTable.innerHTML = myCompany.myMarkets
     .map((id) => {
-      let market = data.markets[id];
+      let market = data.markets.find((market) => market.id === id);
       let share = getMyMarketShare(id);
 
       return `
@@ -208,9 +208,14 @@ function removeOffice() {
 }
 
 function leaveMarket(id) {
-  let index = myCompany.myMarkets.indexOf(parseInt(id));
+  const numId = parseInt(id);
+  const index = myCompany.myMarkets.indexOf(numId);
   if (index !== -1) {
     myCompany.myMarkets.splice(index, 1);
+
+    let market = data.markets.find((market) => market.id === numId);
+    myCompany.monthCosts -= market.monthPayment;
+
     saveData();
     showMyMarkets();
   }
