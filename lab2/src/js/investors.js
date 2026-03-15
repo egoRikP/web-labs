@@ -1,4 +1,5 @@
 import { data, getCurrentUserData, saveData } from "./storage.js";
+import { makeCompanyChange } from "./userControl.js";
 
 let investorList = data.investors;
 
@@ -131,6 +132,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   document.querySelectorAll(".investor-button").forEach((button) => {
-    button.addEventListener("click", (e) => takeInvestor(e.target.dataset.id));
+    button.addEventListener("click", (e) =>
+      makeCompanyChange(() => takeInvestor(e.target.dataset.id)),
+    );
   });
 });

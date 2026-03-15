@@ -1,4 +1,5 @@
 import { getCurrentUserData, saveData, data } from "./storage.js";
+import { makeCompanyChange } from "./userControl.js";
 
 let currentUser, myCompany;
 
@@ -97,7 +98,7 @@ function showMyMarkets() {
 function showMyInvestors() {
   ui.investorsTable.innerHTML = myCompany.investors
     .map((id) => {
-      let inv = data.investors[id];
+      let inv = data.investors.find((investor) => investor.id == id);
       let shareValue = myCompany.balance * (inv.averageCheckPercent / 100);
 
       return `
@@ -138,15 +139,12 @@ function nextMonth() {
   let validCompetitors = getValidCompetitors();
 
   myCompany.myMarkets.forEach((marketIndex) => {
-    let market = data.markets[marketIndex];
+    let market = data.markets.find((market) => market.id === marketIndex);
     if (!market) return;
 
     let competitorsStrength = validCompetitors
-      .filter(
-        (c) =>
-          c.company.region?.some((r) => market.region?.includes(r)) &&
-          c.company.area?.some((a) => market.area?.includes(a)),
-      )
+      .filter((c) => c.company.myMarkets?.includes(marketIndex))
+
       .reduce((sum, c) => sum + (c.company.empoyees + c.company.offices), 0);
 
     let totalStrength = myStrength + competitorsStrength;
@@ -232,28 +230,26 @@ document.addEventListener("DOMContentLoaded", () => {
   myCompany = currentUser.company;
 
   updateUI();
-  showMyMarkets();
-  showMyInvestors();
 
   ui.marketsTable.addEventListener("click", (e) => {
     if (e.target.classList.contains("leave-market-button")) {
-      leaveMarket(e.target.dataset.id);
+      makeCompanyChange(() => leaveMarket(e.target.dataset.id));
     }
   });
 
   document
     .getElementById("addEmployeeButton")
-    .addEventListener("click", addEmployee);
+    .addEventListener("click", () => makeCompanyChange(addEmployee));
   document
     .getElementById("removeEmployeeButton")
-    .addEventListener("click", removeEmployee);
+    .addEventListener("click", () => makeCompanyChange(removeEmployee));
   document
     .getElementById("addOfficeButton")
-    .addEventListener("click", addOffice);
+    .addEventListener("click", () => makeCompanyChange(addOffice));
   document
     .getElementById("removeOfficeButton")
-    .addEventListener("click", removeOffice);
+    .addEventListener("click", () => makeCompanyChange(removeOffice));
   document
     .getElementById("nextMonthSimulationButton")
-    .addEventListener("click", nextMonth);
+    .addEventListener("click", () => makeCompanyChange(nextMonth));
 });

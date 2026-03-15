@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.querySelectorAll(".market-button").forEach((btn) => {
     btn.addEventListener("click", (e) =>
-      makeCompanyChange(takeMarket(e.target.dataset.id)),
+      makeCompanyChange(() => takeMarket(e.target.dataset.id)),
     );
   });
 });
