@@ -6,6 +6,7 @@
 
 .my-startup-info {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
 }
@@ -13,16 +14,15 @@
 .my-startup-managment {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 50px;
-}
-
-.my-startup-market {
-    display: flex;
 }
 
 .my-startup-header {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -39,18 +39,19 @@
 
 .my-startup-block {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 20px;
 }
 
 .my-startup-block-item {
     text-align: center;
-    flex-wrap: wrap;
-    display: flex;
 }
 
 .my-startup-block-item h4 {
     color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 6px;
 }
 
 .my-startup-block-item>p {
@@ -73,10 +74,79 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
+}
+
+.my-startup-info-element {
+    padding-top: 30px;
+}
+
+.my-startup-info-title {
+    margin-bottom: 12px;
 }
 
 .button {
     font-size: 1.3em;
-    padding: 10px 10px;
+    padding: 10px 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+thead tr {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+th {
+    text-align: left;
+    padding: 10px 14px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+td {
+    padding: 10px 14px;
+}
+
+tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+@media (max-width: 768px) {
+    .my-startup-section {
+        gap: 24px;
+    }
+
+    .my-startup-info,
+    .my-startup-managment {
+        gap: 24px;
+    }
+
+    .my-startup-info-block {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+    }
+
+    .button {
+        font-size: 1.1em;
+        width: 100%;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 }

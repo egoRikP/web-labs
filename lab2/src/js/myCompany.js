@@ -103,7 +103,7 @@ function showMyInvestors() {
 
       return `
       <tr>
-        <td>${inv.title}%</td>
+        <td>${inv.title}</td>
         <td>${renderList(inv.region)}</td>
         <td>${renderList(inv.area)}</td>
         <td>${inv.averageCheckPercent}%</td>
