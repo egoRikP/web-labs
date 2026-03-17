@@ -38,7 +38,9 @@ function defaultUIValues() {
 }
 
 function updateUI() {
-  if (!myCompany) return;
+  if (!myCompany) {
+    return;
+  }
 
   const {
     empoyees,
@@ -68,6 +70,10 @@ function updateUI() {
   ui.balance.innerText = `$${balance.toLocaleString()}`;
   ui.monthProfit.innerText = `$${monthProfit}`;
   ui.monthPayment.innerText = `$${monthCosts}`;
+
+  renderChart();
+  showMyMarkets();
+  showMyInvestors();
 }
 
 const renderList = (arr) =>
@@ -150,11 +156,25 @@ function nextMonth() {
     let totalStrength = myStrength + competitorsStrength;
     let myShare = totalStrength > 0 ? myStrength / totalStrength : 1;
 
-    totalIncome += Math.round(market.budget * 0.15 * myShare);
+    const penetrationRate = Math.min(0.001 + myStrength * 0.0005, 0.05);
+    totalIncome += Math.round((market.budget / 12) * penetrationRate * myShare);
   });
 
-  myCompany.monthProfit = totalIncome - myCompany.monthCosts;
-  myCompany.balance += myCompany.monthProfit;
+  myCompany.monthProfit = totalIncome;
+  myCompany.balance += totalIncome - myCompany.monthCosts;
+
+  myCompany.myMarkets.forEach((marketIndex) => {
+    let market = data.markets.find((market) => market.id === marketIndex);
+
+    const growth = Math.random() * 0.1 - 0.03; // від -3% до +7%
+    market.budget = Math.round(market.budget * (1 + growth));
+  });
+
+  myCompany.monthHistory.push({
+    balance: myCompany.balance,
+    costs: myCompany.monthCosts,
+    profit: totalIncome,
+  });
 
   saveAndUpdate();
 }
@@ -253,3 +273,54 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("nextMonthSimulationButton")
     .addEventListener("click", () => makeCompanyChange(nextMonth));
 });
+
+let balanceChart = null;
+
+function renderChart() {
+  const ctx = document.getElementById("balanceChart");
+  if (!ctx) return;
+
+  const history = myCompany.monthHistory || [];
+  const labels = history.map((_, i) => `Міс. ${i + 1}`);
+  const realBalance = history.map((m) => m.balance);
+  const modelBalance = history.map((m) => m.balance + m.costs); // без витрат
+
+  if (balanceChart) {
+    balanceChart.data.labels = labels;
+    balanceChart.data.datasets[0].data = realBalance;
+    balanceChart.data.datasets[1].data = modelBalance;
+    balanceChart.update();
+    return;
+  }
+
+  balanceChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Реальний баланс",
+          data: realBalance,
+          borderColor: "#1A794B",
+          backgroundColor: "rgba(50, 199, 72, 0.1)",
+          fill: true,
+          tension: 0.3,
+        },
+        {
+          label: "Без витрат (модель)",
+          data: modelBalance,
+          borderColor: "#aaa",
+          borderDash: [5, 5],
+          fill: false,
+          tension: 0.3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { ticks: { callback: (val) => `$${val.toLocaleString()}` } },
+      },
+    },
+  });
+}
