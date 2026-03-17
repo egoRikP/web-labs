@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Startup</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/css/clear.css" />
+    <link rel="stylesheet" href="../src/css/main.css" />
+    <link rel="stylesheet" href="../src/css/my-startup.css" />
+    <script type="module" src="../src/js/myCompany.js"></script>
+    <script type="module" src="../src/js/storage.js"></script>
+    <script type="module" src="../src/js/userControl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../src/js/menu.js"></script>
+  </head>
+  <body>
+    <script src="../src/js/authCheck.js"></script>
+    <header class="header wrapper">
+      <a href="../index.html" class="header-main">
+        <img class="header-logo" src="../src/images/logo-icon.png" />
+        <h1 class="header-text">Startup</h1>
+      </a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="nav" class="navigation">
+        <ul class="navigation-list">
+          <li>
+            <a href="../pages/my-startup.html" class="navigation-item">
+              <img
+                class="navigation-icon"
+                src="../src/images/startup-icon.png"
+                alt="Мій стартап"
+              />
+              <h2 class="navigation-text">Мій стартап</h2>
+            </a>
+          </li>
+          <li>
+            <a href="../pages/market.html" class="navigation-item">
+              <img
+                class="navigation-icon"
+                src="../src/images/market-icon.png"
+                alt="Ринок"
+              />
+              <h2 class="navigation-text">Ринок</h2>
+            </a>
+          </li>
+          <li>
+            <a href="../pages/investors.html" class="navigation-item">
+              <img
+                class="navigation-icon"
+                src="../src/images/investor-icon.png"
+                alt="Інвестори"
+              />
+              <h2 class="navigation-text">Інвестори</h2>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="auth guest-only">
+        <a class="auth-item" href="../pages/register.html">Реєстрація</a>
+        <a class="auth-item" href="../pages/login.html">Вхід</a>
+      </div>
+      <div class="auth auth-only">
+        <a class="auth-item" onclick="logout()">Вихід</a>
+      </div>
+    </header>
+    <main class="wrapper">
+      <section id="my-startup" class="my-startup-section">
+        <div class="no-company-only">
+          <h3>Ще немає компанії!</h3>
+          <button class="button green">
+            <a href="create-startup.html">Створити власну компанію!</a>
+          </button>
+        </div>
+
+        <div class="company-only">
+          <button class="button green" id="nextMonthSimulationButton">
+            Наступний місяць
+          </button>
+
+          <div class="my-startup-info">
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Моя компанія</h3>
+
+              <div class="my-startup-info-block">
+                <div class="my-startup-header">
+                  <img
+                    class="my-startup-logo"
+                    src="../src/images/my-company-icon.png"
+                  />
+                  <h3 class="my-startup-title" id="companyTitle">Назва</h3>
+                </div>
+
+                <div class="my-startup-block">
+                  <div class="my-startup-block-item">
+                    <h4>Моя частка</h4>
+                    <p id="companyPercentage">90%</p>
+                  </div>
+                </div>
+
+                <div class="my-startup-item">
+                  <img src="../src/images/region-icon.png" />
+                  <div>
+                    <h4>Ринки</h4>
+                    <p id="companyMarkets">Україна</p>
+                  </div>
+                </div>
+
+                <div class="my-startup-item">
+                  <img src="../src/images/field-icon.png" />
+                  <div>
+                    <h4>Сфера</h4>
+                    <p id="companyAreas">IT</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Статистика</h3>
+
+              <div class="my-startup-info-block">
+                <div class="my-startup-block">
+                  <div class="my-startup-block-item">
+                    <h4>Сила</h4>
+                    <p id="companyStrength">10</p>
+                  </div>
+                  <div class="my-startup-block-item">
+                    <h4>Баланс</h4>
+                    <p id="companyBalance">$0</p>
+                  </div>
+                  <div class="my-startup-block-item">
+                    <h4>Прибуток / міс.</h4>
+                    <p class="green" id="companyMonthProfit">$50K</p>
+                  </div>
+                  <div class="my-startup-block-item">
+                    <h4>Витрати / міс.</h4>
+                    <p class="green" id="companyMonthPayment">$50K</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-startup-info-element">
+                <canvas id="balanceChart"></canvas>
+                <h3 class="my-startup-info-title">Баланс по місяцях</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="my-startup-managment">
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Працівники</h3>
+
+              <div class="my-startup-info-block">
+                <div class="my-startup-block-item">
+                  <h4>Кількість</h4>
+                  <p id="companyEmployeesCount">75/100</p>
+                </div>
+
+                <div class="my-startup-block-item">
+                  <h4>Вільних місць</h4>
+                  <p id="companyAvailablePlacesForEmployees">25</p>
+                </div>
+
+                <button
+                  type="button"
+                  class="button red"
+                  id="removeEmployeeButton"
+                >
+                  звільнити
+                </button>
+                <button
+                  type="button"
+                  class="button green"
+                  id="addEmployeeButton"
+                >
+                  найняти
+                </button>
+              </div>
+            </div>
+
+            <div class="my-startup-info-element">
+              <h3 class="my-startup-info-title">Офіси</h3>
+
+              <div class="my-startup-info-block">
+                <div class="my-startup-block-item">
+                  <h4>Кількість</h4>
+                  <p id="companyOfficesCount">75/100</p>
+                </div>
+
+                <button
+                  type="button"
+                  class="button red"
+                  id="removeOfficeButton"
+                >
+                  зняти оренду
+                </button>
+                <button type="button" class="button green" id="addOfficeButton">
+                  орендувати
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="my-startup-info-element">
+            <h3 class="my-startup-info-title">Мої ринки збуту</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Ринок</th>
+                  <th>Сфера</th>
+                  <th>Частка ринку</th>
+                  <th>Розмір</th>
+                  <th>Оплата/міс.</th>
+                  <th>Дохід</th>
+                  <th>Прибуток</th>
+                </tr>
+              </thead>
+              <tbody id="companyMarketsTable"></tbody>
+            </table>
+          </div>
+
+          <div class="my-startup-info-element">
+            <h3 class="my-startup-info-title">Мої інвестори</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Інвестор</th>
+                  <th>Ринок</th>
+                  <th>Сфера</th>
+                  <th>Частка компанії (%)</th>
+                  <th>Розмір (сума інвестиції)</th>
+                  <th>Прибуток</th>
+                </tr>
+              </thead>
+              <tbody id="companyInvestors"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer wrapper">
+      <div class="footer-content">
+        <nav class="footer-navigation">
+          <ul class="footer-navigation-list">
+            <li class="footer-navigation-item">
+              <a href="../pages/my-startup.html">Мій стартап </a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="../pages/market.html">Ринок </a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="../pages/investors.html">Інвестори </a>
+            </li>
+          </ul>
+        </nav>
+        <ul class="footer-address-list">
+          <li>Адреса: Львів, вул. Степана Бандери, 12</li>
+          <li>Тел: +38 (032) 123-45-67</li>
+          <li>Email: startup@simulator.test</li>
+        </ul>
+      </div>
+      <hr />
+      <p class="footer-author">
+        © 2026 Startup Simulator, Ihor Palyha. Всі права захищено.
+      </p>
+    </footer>
+  </body>
+</html>

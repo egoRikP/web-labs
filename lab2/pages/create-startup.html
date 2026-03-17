@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startup login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/css/clear.css" />
+    <link rel="stylesheet" href="../src/css/main.css" />
+    <link rel="stylesheet" href="../src/css/create-startup.css" />
+    <script type="module" src="../src/js/storage.js"></script>
+    <script type="module" src="../src/js/createCompany.js"></script>
+    <script type="module" src="../src/js/menu.js"></script>
+  </head>
+  <body>
+    <script src="../src/js/authCheck.js"></script>
+    <header class="header wrapper">
+      <a href="../index.html" class="header-main">
+        <img class="header-logo" src="../src/images/logo-icon.png" />
+        <h1 class="header-text">Startup</h1>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="nav" class="navigation">
+        <ul class="navigation-list">
+          <li>
+            <a href="../pages/my-startup.html" class="navigation-item">
+              <img
+                class="navigation-icon"
+                src="../src/images/startup-icon.png"
+                alt="Мій стартап"
+              />
+              <h2 class="navigation-text">Мій стартап</h2>
+            </a>
+          </li>
+          <li>
+            <a href="../pages/market.html" class="navigation-item">
+              <img
+                class="navigation-icon"
+                src="../src/images/market-icon.png"
+                alt="Ринок"
+              />
+              <h2 class="navigation-text">Ринок</h2>
+            </a>
+          </li>
+          <li>
+            <a href="../pages/investors.html" class="navigation-item">
+              <img
+                class="navigation-icon"
+                src="../src/images/investor-icon.png"
+                alt="Інвестори"
+              />
+              <h2 class="navigation-text">Інвестори</h2>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="auth guest-only">
+        <a class="auth-item" href="../pages/register.html">Реєстрація</a>
+        <a class="auth-item" href="../pages/login.html">Вхід</a>
+      </div>
+      <div class="auth auth-only">
+        <a class="auth-item" onclick="logout()">Вихід</a>
+      </div>
+    </header>
+
+    <main class="wrapper">
+      <section id="startup" class="startup-section">
+        <form class="startup-form" id="startup-form">
+          <h3 class="startup-title">Створення власної компанії</h3>
+          <div class="startup-form-content">
+            <div class="startup-form-item">
+              <label class="startup-form-label" for="company"> Назва: </label>
+              <input
+                required
+                class="startup-form-input"
+                name="company"
+                placeholder="Наприклад, ViTEk"
+              />
+            </div>
+
+            <div class="startup-form-item">
+              <label class="startup-form-label" for="field">
+                Сфера діяльності:
+              </label>
+              <select
+                required
+                id="field-form"
+                class="startup-form-input"
+                name="field"
+                multiple
+              >
+                <option selected disabled value="">Виберіть сфери діяльності</option>
+              </select>
+            </div>
+
+            <div class="startup-form-item">
+              <label class="startup-form-label" for="description">
+                Опис:
+              </label>
+              <textarea
+                required
+                value=""
+                class="startup-form-input"
+                placeholder="Опис про компанію"
+                name="description"
+              ></textarea>
+            </div>
+
+            <div class="startup-form-item">
+              <label class="startup-form-label" for="region"> Регіон: </label>
+              <select
+                required
+                id="region-form"
+                class="startup-form-input"
+                name="region"
+                multiple
+              >
+                <option selected disabled value="">Виберіть регіони</option>
+              </select>
+            </div>
+          </div>
+          <button class="button green">Створити</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer wrapper">
+      <div class="footer-content">
+        <nav class="footer-navigation">
+          <ul class="footer-navigation-list">
+            <li class="footer-navigation-item">
+              <a href="../pages/my-startup.html">Мій стартап </a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="../pages/market.html">Ринок </a>
+            </li>
+            <li class="footer-navigation-item">
+              <a href="../pages/investors.html">Інвестори </a>
+            </li>
+          </ul>
+        </nav>
+        <ul class="footer-address-list">
+          <li>Адреса: Львів, вул. Степана Бандери, 12</li>
+          <li>Тел: +38 (032) 123-45-67</li>
+          <li>Email: startup@simulator.test</li>
+        </ul>
+      </div>
+      <hr />
+      <p class="footer-author">
+        © 2026 Startup Simulator, Ihor Palyha. Всі права захищено.
+      </p>
+    </footer>
+  </body>
+</html>
